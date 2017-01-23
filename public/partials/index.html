@@ -1,0 +1,85 @@
+<md-content>
+  <div layout="row"
+       layout-padding
+       class="bg-dark-blue nav-dark"
+       layout-align="center">
+    <md-button>Market</md-button>
+    <md-button>Investment</md-button>
+    <md-button>Rentalizer</md-button>
+  </div>
+</md-content>
+
+
+<md-content layout="column"
+            layout-padding
+            flex="100">
+
+  <div layout="row">
+    <div flex="25"></div>
+
+    <form name="projectForm"
+          flex="45"
+          layout-align="space-around"
+          ng-submit="search(baths, beds, address)">
+
+       <md-input-container class="md-block">
+          <label>Address</label>
+          <input required
+                 name="address"
+                 ng-model="address">
+          <div ng-messages="projectForm.userName.$error">
+            <div ng-message="required">
+              This is required.
+            </div>
+          </div>
+        </md-input-container>
+
+        <div layout="row"
+             layout-align="space-between">
+          <md-input-container class="md-block">
+            <label>Beds</label>
+            <input name="bed"
+                   type="number"
+                   ng-model="beds">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Baths</label>
+            <input name="bath<"
+                   type="number"
+                   ng-model="baths">
+          </md-input-container>
+        </div>
+        <div layout="row"
+             layout-align="space-between">
+        <md-button class="md-raised"
+                   ng-model="search"
+                   type="submit">Search</md-button>
+
+        </div>
+
+      </form>
+
+      <div flex="25"></div>
+    </div>
+  </md-content>
+
+  <md-content layout="column"
+              layout-padding
+              flex="100">
+
+    <md-card flex="100"
+            layout-padding
+            layout-align="center"
+            ng-hide="searched"
+            ng-repeat="info in master">
+      <h3>Address: {{info.address}}</h3>
+      <p>Beds: {{info.bed}} <br>
+      Baths: {{info.bath}}</p>
+
+      <md-button class="small"
+                 ng-model="newSearch"
+                 ng-click="newSearch()">New</md-button>
+    </md-card>
+
+  </md-content>
