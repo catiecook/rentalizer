@@ -1,85 +1,126 @@
 <md-content>
   <div layout="row"
        layout-padding
-       class="bg-dark-blue nav-dark"
        layout-align="center">
-    <md-button>Market</md-button>
+    <!-- <md-button>Market</md-button>
     <md-button>Investment</md-button>
-    <md-button>Rentalizer</md-button>
-  </div>
+    <md-button>Rentalizer</md-button> -->
+    <div flex="25"></div>
+    <div flex="50">
+      <h1>Rentalizer</h1>
+      <h3>Find out how much money you could make on your house from rental based on data from AirBnb rates around yor neightborhood </h3>
+    </div>
+  <div flex="25"></div>
+</div>
 </md-content>
-
 
 <md-content layout="column"
             layout-padding
+            layout-align="center"
             flex="100">
 
   <div layout="row">
     <div flex="25"></div>
 
     <form name="projectForm"
-          flex="45"
+          flex="55"
+          ng-hide="hideForm"
           layout-align="space-around"
-          ng-submit="search(baths, beds, address)">
+          ng-submit="search(beds, baths, accomidates, address, zipcode)">
 
        <md-input-container class="md-block">
           <label>Address</label>
           <input required
-                 name="address"
+                 flex="100"
+                 name="addr"
                  ng-model="address">
-          <div ng-messages="projectForm.userName.$error">
+          <div ng-messages="projectForm.addr.$error">
             <div ng-message="required">
               This is required.
             </div>
           </div>
         </md-input-container>
 
+      <md-input-container class="md-block">
+        <label>Zipcode</label>
+        <input required
+               flex="50"
+               name="zip"
+               type="number"
+               ng-model="zipcode">
+        <div ng-messages="projectForm.zipcode.$error">
+          <div ng-message="required">
+            This is required.
+          </div>
+        </div>
+      </md-input-container>
+
         <div layout="row"
              layout-align="space-between">
           <md-input-container class="md-block">
             <label>Beds</label>
             <input name="bed"
+                   flex="90"
                    type="number"
                    ng-model="beds">
           </md-input-container>
 
           <md-input-container class="md-block">
             <label>Baths</label>
-            <input name="bath<"
+            <input name="bath"
+                   flex="90"
                    type="number"
                    ng-model="baths">
           </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Accomidates</label>
+            <input name="accomidate"
+                   type="number"
+                   ng-model="accomidates">
+          </md-input-container>
         </div>
         <div layout="row"
-             layout-align="space-between">
+             layout-align="center">
+
         <md-button class="md-raised"
-                   ng-model="search"
+                   id="searchBtn"
                    type="submit">Search</md-button>
-
         </div>
-
       </form>
-
+Hide Form {{master.hideForm}}
       <div flex="25"></div>
     </div>
   </md-content>
 
   <md-content layout="column"
+              ng-hide="searched"
               layout-padding
               flex="100">
 
     <md-card flex="100"
-            layout-padding
-            layout-align="center"
-            ng-hide="searched"
-            ng-repeat="info in master">
-      <h3>Address: {{info.address}}</h3>
-      <p>Beds: {{info.bed}} <br>
-      Baths: {{info.bath}}</p>
-
-      <md-button class="small"
-                 ng-model="newSearch"
-                 ng-click="newSearch()">New</md-button>
+             layout-padding
+             layout-align="center"
+             ng-repeat="info in master">
+      <h3>{{info.address}}<br>
+          {{info.zip}}</h3>
+      <p> Beds: {{info.bed}} <br>
+          Baths: {{info.bath}}</p>
     </md-card>
 
+
+    <md-content layout="row"
+                layout-padding
+                layout-align="space-between">
+
+      <md-card flex="30">
+        <h4>Card 1</h4>
+      </md-card>
+      <md-card flex="30">
+        <h4>Card 1</h4>
+      </md-card>
+      <md-card flex="30">
+        <h4>Card 1</h4>
+      </md-card>
+    </md-content>
   </md-content>

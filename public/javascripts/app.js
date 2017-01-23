@@ -4,6 +4,7 @@ angular.module('airdna', ['ngRoute', 'ngAnimate', 'ngMaterial'])
     $routeProvider.when('/', {
         templateUrl: 'partials/index.html',
         controller: 'RentalizerController'
+        // airdnaAPI: process.env.AIRDNA
     })
 
     $locationProvider.html5Mode(true);
