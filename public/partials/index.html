@@ -11,11 +11,13 @@
       <h3>Find out how much money you could make on your house from rental based on data from AirBnb rates around yor neightborhood </h3>
     </div>
   <div flex="25"></div>
+  Hide Form {{master.searched}}
 </div>
 </md-content>
 
 <md-content layout="column"
             layout-padding
+            ng-show="master.hideForm"
             layout-align="center"
             flex="100">
 
@@ -88,13 +90,13 @@
                    type="submit">Search</md-button>
         </div>
       </form>
-Hide Form {{master.hideForm}}
+
       <div flex="25"></div>
     </div>
   </md-content>
 
   <md-content layout="column"
-              ng-hide="searched"
+              ng-show="master.searched"
               layout-padding
               flex="100">
 

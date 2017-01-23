@@ -11,7 +11,7 @@ angular.module('airdna')
     $scope.accomidates = 4;
     $scope.master.searched = false;
     $scope.master.hideForm = true;
-    $scope.master.newSearch = false;
+
 
 
     $scope.search = (bed, bath, accomidates, address, zip) => {
