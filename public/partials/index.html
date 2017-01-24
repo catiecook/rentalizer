@@ -104,7 +104,7 @@
              layout-padding
              layout-align="center"
              ng-repeat="info in master">
-      <h3>{{info.address}},
+      <h3>{{info.address}}
           {{info.zip}}</h3>
     </div>
 
@@ -112,7 +112,7 @@
                 layout-padding
                 layout-align="space-between">
 
-      <md-card flex="30"
+      <md-card flex="25"
                layout="column"
                layout-padding
                layout-align="center">
@@ -129,11 +129,14 @@
 
       </md-card>
 
-      <md-card flex="50">
+      <md-card flex="40"
+              layout-align="center">
         <h3>Monthly Profit</h3>
+        <section id="monthly"></section>
       </md-card>
-      <md-card flex="30">
+      <md-card flex="40">
         <h3>Daily Rates</h3>
+        <section id="daily"></section>
       </md-card>
     </md-content>
 
