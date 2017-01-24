@@ -1,6 +1,7 @@
 <md-content>
   <div layout="row"
        layout-padding
+         ng-show="master.hideForm"
        layout-align="center">
     <!-- <md-button>Market</md-button>
     <md-button>Investment</md-button>
@@ -11,7 +12,7 @@
       <h3>Find out how much money you could make on your house from rental based on data from AirBnb rates around yor neightborhood </h3>
     </div>
   <div flex="25"></div>
-  Hide Form {{master.searched}}
+
 </div>
 </md-content>
 
@@ -26,7 +27,6 @@
 
     <form name="projectForm"
           flex="55"
-          ng-hide="hideForm"
           layout-align="space-around"
           ng-submit="search(beds, baths, accomidates, address, zipcode)">
 
@@ -100,29 +100,50 @@
               layout-padding
               flex="100">
 
-    <md-card flex="100"
+    <div flex="100"
              layout-padding
              layout-align="center"
              ng-repeat="info in master">
-      <h3>{{info.address}}<br>
+      <h3>{{info.address}},
           {{info.zip}}</h3>
-      <p> Beds: {{info.bed}} <br>
-          Baths: {{info.bath}}</p>
-    </md-card>
-
+    </div>
 
     <md-content layout="row"
                 layout-padding
                 layout-align="space-between">
 
-      <md-card flex="30">
-        <h4>Card 1</h4>
+      <md-card flex="30"
+               layout="column"
+               layout-padding
+               layout-align="center">
+        <h3>Quick Info</h3>
+
+        <section>Bedrooms: {{master.rentalizerPredictions[0].details.bedrooms}}</section>
+
+        <section>Bathrooms: {{master.rentalizerPredictions[0].details.bathrooms}}</section>
+        <section>Yearly Rev: ${{master.rentalizerPredictions[0].yearRev}}</section>
+
+        <section>Daily Average: ${{master.rentalizerPredictions[0].avAdr}}</section>
+
+        <section>Average Monthly Occupency: {{master.rentalizerPredictions[0].avOcc}}%</section>
+
+      </md-card>
+
+      <md-card flex="50">
+        <h3>Monthly Profit</h3>
       </md-card>
       <md-card flex="30">
-        <h4>Card 1</h4>
-      </md-card>
-      <md-card flex="30">
-        <h4>Card 1</h4>
+        <h3>Daily Rates</h3>
       </md-card>
     </md-content>
+
+    <form layout-align="space-around"
+    ng-submit="newSearch()">
+    Hide Form {{master.hideForm}}
+    <md-button class="md"
+               id="new"
+               type="submit">
+               New</md-button>
+    </form>
+
   </md-content>

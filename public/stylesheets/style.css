@@ -10,3 +10,9 @@ img {
   max-width: 25%;
   padding-left: 2%;
 }
+
+h3 {
+  padding-top: 0px;
+  margin-top: 0px;
+  text-align: center;
+}
