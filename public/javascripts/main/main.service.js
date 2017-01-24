@@ -1,9 +1,9 @@
 angular.module('airdna')
   .service('mainService', function($http) {
     let allInfo = [];
+    let airbnbData = [];
 
     function getInfo(bed, bath, accomidates, address, zip){
-      console.log("in get info");
 
       const payload = {
         address: address,
@@ -16,9 +16,6 @@ angular.module('airdna')
       return $http.post('/search', payload)
         .then((response) => {
           let data = response.data;
-          
-          console.log(data);
-
           let adr = data.adr_predicted["2016"];
           let monthlyAverageAdr = data.adr_predicted.ltm;
           let occupancy = data.occ_predicted["2016"];
@@ -38,22 +35,14 @@ angular.module('airdna')
             yearRev: yearRev,
             comp: comp
           };
-//**** here is the issue *****
-          return allInfo;
 
         }).catch((err) => {
           console.log("error", err);
         });
     };
 
-    // function sendInfo(){
-    //   console.log("ALL INFO", allInfo);
-    //   return allInfo;
-    // };
-
     return {
       getInfo: getInfo
-
     };
 
   });

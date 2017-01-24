@@ -1,7 +1,7 @@
 angular.module('airdna')
 
 .controller('MainController', function($scope, mainService) {
-    $scope.houseInfo = []; //collect house info
+    $scope.houseInfo = [];
 
     $scope.searched = false;
     $scope.hideForm = true;
@@ -16,10 +16,9 @@ angular.module('airdna')
 
     $scope.search = (beds, baths, accomidates, address, zipcode) => {
 
-      console.log("inSearch");
-
       mainService.getInfo(beds, baths, accomidates, address, zipcode).then((data) => {
         $scope.houseInfo = data
+        console.log($scope.houseInfo);
       });
 
       hideForm();

@@ -12,148 +12,186 @@
 
 </div>
 </md-content>
+<md-content layout="column">
+  <div layout="column"
+              layout-padding
+              ng-show="hideForm"
+              layout-align="center"
+              flex="100">
 
-<md-content layout="column"
-            layout-padding
-            ng-show="hideForm"
-            layout-align="center"
-            flex="100">
+    <div layout="row">
+      <div flex="25"></div>
 
-  <div layout="row">
-    <div flex="25"></div>
+      <form name="projectForm"
+            flex="55"
+            layout-align="space-around"
+            ng-submit="search(beds, baths, accomidates, address, zipcode)">
 
-    <form name="projectForm"
-          flex="55"
-          layout-align="space-around"
-          ng-submit="search(beds, baths, accomidates, address, zipcode)">
+         <md-input-container class="md-block">
+            <label>Address</label>
+            <input required
+                   flex="100"
+                   name="addr"
+                   ng-model="address">
+            <div ng-messages="projectForm.addr.$error">
+              <div ng-message="required">
+                This is required.
+              </div>
+            </div>
+          </md-input-container>
 
-       <md-input-container class="md-block">
-          <label>Address</label>
+        <md-input-container class="md-block">
+          <label>Zipcode</label>
           <input required
-                 flex="100"
-                 name="addr"
-                 ng-model="address">
-          <div ng-messages="projectForm.addr.$error">
+                 flex="50"
+                 name="zip"
+                 type="number"
+                 ng-model="zipcode">
+          <div ng-messages="projectForm.zipcode.$error">
             <div ng-message="required">
               This is required.
             </div>
           </div>
         </md-input-container>
 
-      <md-input-container class="md-block">
-        <label>Zipcode</label>
-        <input required
-               flex="50"
-               name="zip"
-               type="number"
-               ng-model="zipcode">
-        <div ng-messages="projectForm.zipcode.$error">
-          <div ng-message="required">
-            This is required.
+          <div layout="row"
+               layout-align="space-between">
+            <md-input-container class="md-block">
+              <label>Beds</label>
+              <input name="bed"
+                     flex="90"
+                     type="number"
+                     ng-model="beds">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+              <label>Baths</label>
+              <input name="bath"
+                     flex="90"
+                     type="number"
+                     ng-model="baths">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+              <label>Accomidates</label>
+              <input name="accomidate"
+                     type="number"
+                     ng-model="accomidates">
+            </md-input-container>
           </div>
-        </div>
-      </md-input-container>
+          <div layout="row"
+               layout-align="center">
 
-        <div layout="row"
-             layout-align="space-between">
-          <md-input-container class="md-block">
-            <label>Beds</label>
-            <input name="bed"
-                   flex="90"
-                   type="number"
-                   ng-model="beds">
-          </md-input-container>
+          <md-button class="md-raised"
+                     id="searchBtn"
+                     type="submit">Search</md-button>
+          </div>
+        </form>
 
-          <md-input-container class="md-block">
-            <label>Baths</label>
-            <input name="bath"
-                   flex="90"
-                   type="number"
-                   ng-model="baths">
-          </md-input-container>
-
-          <md-input-container class="md-block">
-            <label>Accomidates</label>
-            <input name="accomidate"
-                   type="number"
-                   ng-model="accomidates">
-          </md-input-container>
-        </div>
-        <div layout="row"
-             layout-align="center">
-
-        <md-button class="md-raised"
-                   id="searchBtn"
-                   type="submit">Search</md-button>
-        </div>
-      </form>
-
-      <div flex="25"></div>
-    </div>
-  </md-content>
-
-  <md-content layout="column"
-              ng-show="searched"
-              layout-padding
-              flex="100">
-
-    <div flex="100"
-          layout-padding
-          layout-align="center">
-
-      <h1>{{address}}
-          {{zip}}</h1>
-    </div>
-
-    <md-content layout="row"
-                flex="100"
-                layout-padding
-                layout-align="space-between">
-
-      <md-whiteframe flex="30"
-                     layout="column"
-                     layout-padding
-                     class="center md-whiteframe-1dp">
-        <h2>House Details</h2>
-        <section class="emph"> {{houseInfo.details.bedrooms}} Bedrooms </section>
-        <section class="emph"> {{houseInfo.details.bathrooms}} Bathroom </section>
-        <section class="emph">You could make ${{houseInfo.yearRev}} a year!</section>
-
-      </md-whiteframe>
-
-      <md-whiteframe flex="30"
-                     layout="column"
-                     layout-padding
-                     class="center md-whiteframe-1dp">
-        <h2>Daily Average</h2>
-        <section class="emph"> ${{houseInfo.avAdr}} </section>
-        <section class="emph"> Local Market: $140 </section>
-      </md-whiteframe>
-      <md-whiteframe flex="30"
-                     layout="column"
-                     layout-padding
-                     class="center md-whiteframe-1dp">
-
-        <h2>Monthly Profits</h2>
-        <section class="emph"> $2,432 </section>
-        <section class="emph"> Local Market: $1,043 </section>
-      </md-whiteframe>
-    </md-content>
-
-    <md-whiteframe flex="100" class="md-whiteframe-1dp">
-      <h2>Monthly Profit Chart</h2>
-      <section id="monthly"></section>
-    </md-whiteframe>
-
-    <md-whiteframe flex="100"
-                   class="center md-whiteframe-1dp">
-
-      <h2>Comparable Houses</h2>
-      <div map-lazy-load="https://maps.google.com/maps/api/js">
-        <ng-map center="41,-87"
-                zoom="3"></ng-map>
+        <div flex="25"></div>
       </div>
-</div>
-    </md-whiteframe>
+    </div>
 
-  </md-content>
+
+    <div layout="column"
+                ng-show="searched"
+                layout-padding
+                flex="100">
+
+      <div flex="100"
+            layout-padding
+            layout-align="center">
+
+        <h1>{{address}}
+            {{zip}}</h1>
+      </div>
+
+      <div layout="row"
+                  flex="100"
+                  layout-padding
+                  layout-align="space-between">
+
+        <md-whiteframe flex="30"
+                       layout="column"
+                       layout-padding
+                       class="center md-whiteframe-1dp">
+          <h2>House Details</h2>
+          <section class="emph"> {{houseInfo.details.bedrooms}} Bedrooms </section>
+          <section class="emph"> {{houseInfo.details.bathrooms}} Bathroom </section>
+          <section class="emph">You could make ${{houseInfo.yearRev}} a year!</section>
+
+        </md-whiteframe>
+
+        <md-whiteframe flex="30"
+                       layout="column"
+                       layout-padding
+                       class="center md-whiteframe-1dp">
+          <h2>Daily Average</h2>
+          <section class="emph"> ${{houseInfo.avAdr}} </section>
+          <section class="emph"> Local Market: $140 </section>
+        </md-whiteframe>
+        <md-whiteframe flex="30"
+                       layout="column"
+                       layout-padding
+                       class="center md-whiteframe-1dp">
+
+          <h2>Monthly Profits</h2>
+          <section class="emph"> $2,432 </section>
+          <section class="emph"> Local Market: $1,043 </section>
+        </md-whiteframe>
+      </div>
+
+
+
+      <md-whiteframe flex="100"
+                     class="md-whiteframe-1dp">
+        <h2>Monthly Profit Chart</h2>
+        <section id="monthly"></section>
+      </md-whiteframe>
+
+      <md-whiteframe flex="100"
+                     layout-padding
+                     class="center md-whiteframe-1dp">
+
+        <h2>Comparable Houses</h2>
+
+        <md-grid-list
+                    md-cols-xs="1"
+                    md-cols-sm="2"
+                    md-cols-md="4"
+                    md-cols-gt-md="4"
+                    md-row-height-gt-md="1:1"
+                    md-row-height="2:2"
+                    md-gutter="12px"
+                    md-gutter-gt-sm="8px">
+          <md-grid-tile class="blue-grey"
+                        ng-repeat="comp in houseInfo.comp">
+            <div layout="column"
+                 layout-align="left">
+
+              <h3>ID: {{comp.prop_id}}</h3>
+              <p>
+                Daily Average: {{comp.adr.ltm}}
+              </p>
+              <p>
+                Yearly Rev Potential: {{comp.revenue_potential.ltm}}
+              </p>
+            </div>
+
+            <md-grid-tile-footer>
+              <a href="{{comp.url}}" target="blank">
+                <h3>View</h3>
+              </a>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+        </md-grid-list>
+
+
+        <div map-lazy-load="https://maps.google.com/maps/api/js">
+          <ng-map center="41,-87"
+                  zoom="3"></ng-map>
+        </div>
+      </md-whiteframe>
+    </div>
+
+  </div>
