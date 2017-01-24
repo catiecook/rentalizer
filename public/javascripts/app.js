@@ -1,10 +1,9 @@
-angular.module('airdna', ['ngRoute', 'ngAnimate', 'ngMaterial'])
+angular.module('airdna', ['ngRoute','ngAnimate', 'ngMaterial', 'ngAria', 'ngMap'])
 
   .config(function($routeProvider, $locationProvider, $mdThemingProvider) {
     $routeProvider.when('/', {
         templateUrl: 'partials/index.html',
-        controller: 'RentalizerController'
-        // airdnaAPI: process.env.AIRDNA
+        controller: 'MainController'
     })
 
     $locationProvider.html5Mode(true);
@@ -19,4 +18,5 @@ angular.module('airdna', ['ngRoute', 'ngAnimate', 'ngMaterial'])
       .warnPalette('orange', {
         'default': '300',
       })
+      .backgroundPalette('blue-grey');
 })

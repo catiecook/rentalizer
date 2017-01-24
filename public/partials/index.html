@@ -1,11 +1,8 @@
 <md-content>
   <div layout="row"
        layout-padding
-         ng-show="master.hideForm"
+         ng-show="hideForm"
        layout-align="center">
-    <!-- <md-button>Market</md-button>
-    <md-button>Investment</md-button>
-    <md-button>Rentalizer</md-button> -->
     <div flex="25"></div>
     <div flex="50">
       <h1>Rentalizer</h1>
@@ -18,7 +15,7 @@
 
 <md-content layout="column"
             layout-padding
-            ng-show="master.hideForm"
+            ng-show="hideForm"
             layout-align="center"
             flex="100">
 
@@ -96,17 +93,16 @@
   </md-content>
 
   <md-content layout="column"
-              ng-show="master.searched"
+              ng-show="searched"
               layout-padding
               flex="100">
 
     <div flex="100"
-             layout-padding
-             layout-align="center"
-             ng-repeat="info in master">
+          layout-padding
+          layout-align="center">
 
-      <h1>{{info.address}}
-          {{info.zip}}</h1>
+      <h1>{{address}}
+          {{zip}}</h1>
     </div>
 
     <md-content layout="row"
@@ -114,42 +110,49 @@
                 layout-padding
                 layout-align="space-between">
 
-      <md-card flex="35"
-               layout="column"
-               layout-padding
-               class="center">
-        <h1>House Details</h1>
-        <section class="emph"> {{master.rentalizerPredictions[0].details.bedrooms}} Bedrooms </section>
-        <section class="emph"> {{master.rentalizerPredictions[0].details.bathrooms}} Bathroom </section>
-        <section class="emph">You could make ${{master.rentalizerPredictions[0].yearRev}} a year!</section>
-      </md-card>
+      <md-whiteframe flex="35"
+                     layout="column"
+                     layout-padding
+                     class="center md-whiteframe-1dp">
+        <h2>House Details</h2>
+        <section class="emph"> {{houseInfo.details.bedrooms}} Bedrooms </section>
+        <section class="emph"> {{houseInfo.details.bathrooms}} Bathroom </section>
+        <section class="emph">You could make ${{houseInfo.yearRev}} a year!</section>
+      </md-whiteframe>
 
-      <md-card flex="35"
-               layout="column"
-               layout-padding
-               class="center">
-        <h1>Daily Average</h1>
-        <section class="emph"> ${{master.rentalizerPredictions[0].avAdr}} </section>
+      <md-whiteframe flex="35"
+                     layout="column"
+                     layout-padding
+                     class="center md-whiteframe-1dp">
+        <h2>Daily Average</h2>
+        <section class="emph"> ${{houseInfo.avAdr}} </section>
         <section class="emph"> Local Market: $140 </section>
-      </md-card>
-      <md-card flex="35"
-               layout="column"
-               layout-padding
-               class="center">
+      </md-whiteframe>
+      <md-whiteframe flex="35"
+                     layout="column"
+                     layout-padding
+                     class="center md-whiteframe-1dp">
 
-        <h1>Monthly Profits</h1>
+        <h2>Monthly Profits</h2>
         <section class="emph"> $2,432 </section>
         <section class="emph"> Local Market: $1,043 </section>
-      </md-card>
+      </md-whiteframe>
     </md-content>
 
-    <md-card flex="100">
-      <h1>Monthly Profit Chart</h1>
+    <md-whiteframe flex="100" class="md-whiteframe-1dp">
+      <h2>Monthly Profit Chart</h2>
       <section id="monthly"></section>
-    </md-card>
-      <!-- <md-card flex="100">
-        <h3>Daily Rates</h3>
-        <section id="daily"></section>
-      </md-card> -->
+    </md-whiteframe>
+
+    <md-whiteframe flex="100"
+                   class="center md-whiteframe-1dp">
+
+      <h2>Comparable Houses</h2>
+      <div map-lazy-load="https://maps.google.com/maps/api/js">
+        <ng-map center="41,-87"
+                zoom="3"></ng-map>
+      </div>
+</div>
+    </md-whiteframe>
 
   </md-content>
