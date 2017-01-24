@@ -11,7 +11,7 @@ function drawChart() {
   ]);
 
   var options = {
-    title: 'Company Performance',
+    title: 'Monthly Profits',
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
     vAxis: {minValue: 0}
   };
@@ -33,5 +33,4 @@ function drawChart() {
 
   var chart2 = new google.visualization.ScatterChart(document.getElementById('daily'));
   chart2.draw(data2, options2);
-
 };

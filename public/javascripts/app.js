@@ -10,8 +10,7 @@ angular.module('airdna', ['ngRoute', 'ngAnimate', 'ngMaterial'])
     $locationProvider.html5Mode(true);
 
     $mdThemingProvider.theme('default')
-      .dark()
-      .primaryPalette('blue', {
+      .primaryPalette('blue-grey', {
         'default': '200'
       })
       .accentPalette('orange', {
