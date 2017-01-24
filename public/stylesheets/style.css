@@ -19,18 +19,9 @@ body {
   align-items: center;
 }
 
-/*h1 {
-  font-size: 5vmin;
-}*/
-
 a {
   color: #00B7FF;
 }
-/*
-img {
-  max-width: 25%;
-  padding-left: 2%;
-}*/
 
 h2, h1{
   padding-top: 0em;
@@ -42,13 +33,6 @@ ng-map {
   height: auto;
   width: 100%;
 }
-
-/*.emph {
-  font-size: 3vmin;
-  font-weight: 500;
-  height: 20vmin;
-  overflow: scroll;
-}*/
 
 .center {
   text-align: center;
