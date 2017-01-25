@@ -166,20 +166,20 @@
           <md-grid-tile class="blue-grey"
                         md-rowspan="1"
                         md-colspan="2"
-                        ng-repeat="comp in houseInfo.comp | limitTo:6">
+                        ng-repeat="house in airBnb.data | limitTo:6">
             <div layout="column"
                  layout-fill
                  layout-align="left">
 
-              <a href="{{comp.url}}" target="blank">
-                <h3>ID: {{comp.prop_id}}</h3>
+              <a href="{{house.url}}" target="blank">
+                <h4>{{house.address}}</h4>
               </a>
               <p>
-                Daily Average: {{comp.adr.ltm}}
+                Daily Average: ${{house.adr.ltm}}
 
               </p>
               <p>
-                Yearly Rev Potential: {{comp.revenue_potential.ltm}}
+                Yearly Rev Potential: ${{house.revenue_potential.ltm}}
               </p>
             </div>
 
@@ -190,7 +190,7 @@
         <div map-lazy-load="https://maps.google.com/maps/api/js">
 
           <ng-map center="{{houseInfo.details.lat}}, {{houseInfo.details.lng}}"zoom="15">
-            <marker ng-repeat="comp in houseInfo.comp" position="{{comp.lat}}, {{comp.lng}}" />
+            <marker ng-repeat="house in airBnb.data" position="{{house.lat}}, {{house.lng}}" />
           </ng-map>
 
 
@@ -198,7 +198,3 @@
       </md-whiteframe>
     </div>
   </md-content>
-
-  <!-- <ng-map center="[47.5646, -122.1700]" zoom="16">
-      <marker position="[47.5646, -122.1700]" />
-    </ng-map> -->

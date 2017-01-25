@@ -4,7 +4,7 @@ angular.module('airdna')
     $scope.houseInfo = [];
     $scope.locationPts = [];
     $scope.monthlyRev = [];
-    // $scope.chartOptions = [];
+    $scope.airBnb = [];
     $scope.chartOptions = {
         chart: {
             type: 'area'
@@ -43,9 +43,11 @@ angular.module('airdna')
 
     $scope.search = (beds, baths, accomidates, address, zipcode) => {
       mainService.getInfo(beds, baths, accomidates, address, zipcode).then((data) => {
+
         $scope.houseInfo = data;
         $scope.monthlyRev = mainService.revPot(data.revenue);
-        // $scope.chartOptions = chartService.getChartData($scope.monthlyRev);
+        $scope.airBnb = mainService.getAllabnb();
+        console.log($scope.airBnb);
       });
       hideForm();
       showResults();
