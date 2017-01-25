@@ -46,6 +46,7 @@ angular.module('airdna')
         $scope.houseInfo = data;
         $scope.monthlyRev = mainService.revPot(data.revenue);
         // $scope.chartOptions = chartService.getChartData($scope.monthlyRev);
+        console.log($scope.houseInfo.comp["2"].lat);
       });
       hideForm();
       showResults();
