@@ -143,8 +143,10 @@
 
       <md-whiteframe flex="100"
                      class="md-whiteframe-1dp">
+
         <h2>Monthly Profit Chart</h2>
-        <section id="monthly"></section>
+        <hc-chart options="chartOptions"></hc-chart>
+
       </md-whiteframe>
 
       <md-whiteframe flex="100"
@@ -164,7 +166,7 @@
           <md-grid-tile class="blue-grey"
                         md-rowspan="1"
                         md-colspan="2"
-                        ng-repeat="comp in houseInfo.comp">
+                        ng-repeat="comp in houseInfo.comp | limitTo:6">
             <div layout="column"
                  layout-fill
                  layout-align="left">
