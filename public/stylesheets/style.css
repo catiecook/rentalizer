@@ -20,7 +20,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
 }
 
 h2, h1{
@@ -30,10 +30,19 @@ h2, h1{
 }
 
 ng-map {
+  margin-top: 2%;
   height: auto;
   width: 100%;
 }
 
 .center {
   text-align: center;
+}
+
+.blue-grey {
+  background-color: #C5CAE9;
+}
+
+.with-margin {
+  margin: 0 5%;
 }
