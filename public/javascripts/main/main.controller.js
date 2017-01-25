@@ -3,6 +3,20 @@ angular.module('airdna')
 .controller('MainController', function($scope, mainService) {
     $scope.houseInfo = [];
     $scope.locationPts = [];
+    $scope.chartOptions = {
+        title: {
+          text: "Predicted Monthly Averages"
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        series: [{
+            data: [
+              2312, 1245, 2112, 1342, 2100, 1876, 2135, 1131, 1009, 1234, 1543, 2001
+            ]
+        }]
+    };
 
     $scope.searched = false;
     $scope.hideForm = true;
@@ -17,7 +31,6 @@ angular.module('airdna')
     $scope.search = (beds, baths, accomidates, address, zipcode) => {
       mainService.getInfo(beds, baths, accomidates, address, zipcode).then((data) => {
         $scope.houseInfo = data
-        console.log($scope.houseInfo);
       });
       hideForm();
       showResults();
