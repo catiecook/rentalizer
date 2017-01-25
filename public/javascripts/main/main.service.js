@@ -51,7 +51,6 @@ angular.module('airdna')
     };
 
     function revPot(data) {
-      console.log("in revpot", data["1"])
       return ({
         1: data["1"],
         2: data["2"],
