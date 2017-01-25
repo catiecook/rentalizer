@@ -1,5 +1,6 @@
 angular.module('airdna')
   .service('mainService', function($http) {
+    
     let revPotential = [];
     let airBnbData = [];
 

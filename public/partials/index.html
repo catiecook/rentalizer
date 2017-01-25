@@ -94,32 +94,42 @@
     </div>
 
     <div layout="column"
-                ng-show="searched"
-                layout-padding
-                flex="100">
-
-      <div flex="100"
-            layout-padding
-            layout-align="center">
+         ng-show="searched"
+         layout-padding
+         flex="100">
+      <md-whiteframe layout="column"
+                     class="md-whiteframe-1dp"
+                     flex="100"
+                     layout-padding
+                     layout-align="space-between">
 
         <h1>{{address}},
-            {{zipcode}}</h1>
-      </div>
+          {{zipcode}}</h1>
 
-      <md-whiteframe layout="row"
-           class="md-whiteframe-1dp"
-           flex="100"
-           layout-padding
-           layout-align="space-between">
+        <div flex="100"
+             layout="row"
+             layout-padding
+             layout-align="center">
 
         <div flex="30"
              layout="column"
              layout-padding
              class="center">
           <h2>House Details</h2>
-          <section class="emph"> {{houseInfo.details.bedrooms}} Bedrooms </section>
-          <section class="emph"> {{houseInfo.details.bathrooms}} Bathroom </section>
-          <section class="emph">You could make ${{houseInfo.yearRev}} a year!</section>
+          <section class="emph"> {{houseInfo.details.bedrooms}}
+            <ng-pluralize count="houseInfo.details.bedrooms"
+                 when="{'1': 'Bedroom',
+                     'other': 'Bedrooms'}">
+            </ng-pluralize>
+          </section>
+
+          <section class="emph"> {{houseInfo.details.bathrooms}}
+            <ng-pluralize count="houseInfo.details.bathrooms"
+                 when="{'1': 'Bathroom',
+                     'other': 'Bathooms'}">
+            </ng-pluralize>
+          </section>
+          <section class="emph">You could make ${{houseInfo.yearRev | number : fractionSize}} a year!</section>
 
         </div>
 
@@ -139,6 +149,7 @@
           <section class="emph"> $2,432 </section>
           <section class="emph"> Local Market: $1,043 </section>
         </div>
+      </div>
       </md-whiteframe>
 
       <md-whiteframe flex="100"
@@ -175,11 +186,11 @@
                 <h4>{{house.address}}</h4>
               </a>
               <p>
-                Daily Average: ${{house.adr.ltm}}
+                Daily Average: ${{house.adr.ltm | number : fractionSize}}
 
               </p>
               <p>
-                Yearly Rev Potential: ${{house.revenue_potential.ltm}}
+                Yearly Rev Potential: ${{house.revenue_potential.ltm | number : fractionSize}}
               </p>
             </div>
 
@@ -197,4 +208,5 @@
         </div>
       </md-whiteframe>
     </div>
+
   </md-content>
