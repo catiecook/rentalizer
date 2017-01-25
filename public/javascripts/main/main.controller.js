@@ -3,6 +3,7 @@ angular.module('airdna')
 .controller('MainController', function($scope, mainService) {
     $scope.houseInfo = [];
     $scope.locationPts = [];
+    $scope.monthlyRev = [];
     $scope.chartOptions = {
         title: {
           text: "Predicted Monthly Averages"
@@ -30,7 +31,8 @@ angular.module('airdna')
 
     $scope.search = (beds, baths, accomidates, address, zipcode) => {
       mainService.getInfo(beds, baths, accomidates, address, zipcode).then((data) => {
-        $scope.houseInfo = data
+        $scope.houseInfo = data;
+        $scope.monthlyRev = mainService.revPot(data.revenue);
       });
       hideForm();
       showResults();

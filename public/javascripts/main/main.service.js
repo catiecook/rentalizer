@@ -1,10 +1,8 @@
 angular.module('airdna')
   .service('mainService', function($http) {
-    let allInfo = [];
-    let airbnbData = [];
+    let revPotential = [];
 
     function getInfo(bed, bath, accomidates, address, zip){
-
       const payload = {
         address: address,
         zip: zip,
@@ -30,8 +28,10 @@ angular.module('airdna')
             locations.push({
               lat: data.comps[i].lat,
               lon: data.comps[i].lon
-            })
-          }
+            });
+          };
+
+          revPotential = revPot(revenue)
 
           return {
             adr: adr,
@@ -50,8 +50,27 @@ angular.module('airdna')
         });
     };
 
+    function revPot(data) {
+      console.log("in revpot", data["1"])
+      return ({
+        1: data["1"],
+        2: data["2"],
+        3: data["3"],
+        4: data["4"],
+        5: data["5"],
+        6: data["6"],
+        7: data["7"],
+        8: data["8"],
+        9: data["9"],
+        10: data["10"],
+        11: data["11"],
+        12: data["12"],
+      });
+    };
+
     return {
-      getInfo: getInfo
+      getInfo: getInfo,
+      revPot: revPot
     };
 
   });
