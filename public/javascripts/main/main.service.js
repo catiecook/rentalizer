@@ -23,11 +23,11 @@ angular.module('airdna')
           let details = data.property_details;
           let revenue = data.revenue_potential["2016"];
           let yearRev = data.revenue_potential.ltm;
-          let comp = [];
+          let comp = data.comps
           let locations = [];
           let addresses = [];
 
-          comp.push(data.comps);
+
 
           for(var i=0; i<data.comps.length; i++) {
             locations.push({
@@ -37,10 +37,10 @@ angular.module('airdna')
           };
 
           revPotential = revPot(revenue);
+          console.log("HELLO");
           airBnbData.push(comp);
 
-          getLatLng(airBnbData, comp[0]);
-          console.log("comp", comp[0]);
+          // getLatLng(airBnbData, comp[0]);
 
           return {
             adr: adr,
@@ -89,11 +89,6 @@ angular.module('airdna')
       console.log("in geocode");
       var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng= " + lat+"," + lng + "&key=AIzaSyB3_vklrmidqHqKCkQWiouLCyQ_I_KTYtE";
       $http.get(url).then((data) => {
-        // var data = data.data.results
-        console.log(data);
-        // comp.push({
-        //   address: data[i].formatted_address
-        // })
       })
     }
 
