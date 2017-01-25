@@ -4,7 +4,7 @@
 //     function getChartData(data) {
 //       return({
 //           title: {
-//             text: "Predicted Monthly Averages"
+//             text: "Predicted Monthly Profits"
 //           },
 //           xAxis: {
 //               categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
