@@ -1,4 +1,4 @@
-<md-content>
+<md-content class="with-margin">
   <div layout="row"
        layout-padding
          ng-show="hideForm"
@@ -10,14 +10,15 @@
     </div>
   <div flex="25"></div>
 
-</div>
+  </div>
 </md-content>
-<md-content layout="column">
+
+<md-content layout="column" class="with-margin">
   <div layout="column"
-              layout-padding
-              ng-show="hideForm"
-              layout-align="center"
-              flex="100">
+       layout-padding
+       ng-show="hideForm"
+       layout-align="center"
+       flex="100">
 
     <div layout="row">
       <div flex="25"></div>
@@ -92,7 +93,6 @@
       </div>
     </div>
 
-
     <div layout="column"
                 ng-show="searched"
                 layout-padding
@@ -102,46 +102,44 @@
             layout-padding
             layout-align="center">
 
-        <h1>{{address}}
-            {{zip}}</h1>
+        <h1>{{address}},
+            {{zipcode}}</h1>
       </div>
 
-      <div layout="row"
-                  flex="100"
-                  layout-padding
-                  layout-align="space-between">
+      <md-whiteframe layout="row"
+           class="md-whiteframe-1dp"
+           flex="100"
+           layout-padding
+           layout-align="space-between">
 
-        <md-whiteframe flex="30"
-                       layout="column"
-                       layout-padding
-                       class="center md-whiteframe-1dp">
+        <div flex="30"
+             layout="column"
+             layout-padding
+             class="center">
           <h2>House Details</h2>
           <section class="emph"> {{houseInfo.details.bedrooms}} Bedrooms </section>
           <section class="emph"> {{houseInfo.details.bathrooms}} Bathroom </section>
           <section class="emph">You could make ${{houseInfo.yearRev}} a year!</section>
 
-        </md-whiteframe>
+        </div>
 
-        <md-whiteframe flex="30"
-                       layout="column"
-                       layout-padding
-                       class="center md-whiteframe-1dp">
+        <div flex="30"
+             layout="column"
+             layout-padding
+             class="center">
           <h2>Daily Average</h2>
           <section class="emph"> ${{houseInfo.avAdr}} </section>
           <section class="emph"> Local Market: $140 </section>
-        </md-whiteframe>
-        <md-whiteframe flex="30"
-                       layout="column"
-                       layout-padding
-                       class="center md-whiteframe-1dp">
-
+        </div>
+        <div flex="30"
+             layout="column"
+             layout-padding
+             class="center">
           <h2>Monthly Profits</h2>
           <section class="emph"> $2,432 </section>
           <section class="emph"> Local Market: $1,043 </section>
-        </md-whiteframe>
-      </div>
-
-
+        </div>
+      </md-whiteframe>
 
       <md-whiteframe flex="100"
                      class="md-whiteframe-1dp">
@@ -154,22 +152,26 @@
                      class="center md-whiteframe-1dp">
 
         <h2>Comparable Houses</h2>
-
-        <md-grid-list
-                    md-cols-xs="1"
-                    md-cols-sm="2"
-                    md-cols-md="4"
-                    md-cols-gt-md="4"
-                    md-row-height-gt-md="1:1"
-                    md-row-height="2:2"
-                    md-gutter="12px"
-                    md-gutter-gt-sm="8px">
+        <md-grid-list md-cols-xs="1"
+                      md-cols-sm="2"
+                      md-cols-md="4"
+                      md-cols-gt-md="6"
+                      md-row-height-gt-md="1:1"
+                      md-row-height="2:2"
+                      md-gutter="12px"
+                      md-gutter-gt-sm="8px"
+                      id="figure">
           <md-grid-tile class="blue-grey"
+                        md-rowspan="1"
+                        md-colspan="2"
                         ng-repeat="comp in houseInfo.comp">
             <div layout="column"
+                 layout-fill
                  layout-align="left">
 
-              <h3>ID: {{comp.prop_id}}</h3>
+              <a href="{{comp.url}}" target="blank">
+                <h3>ID: {{comp.prop_id}}</h3>
+              </a>
               <p>
                 Daily Average: {{comp.adr.ltm}}
               </p>
@@ -178,20 +180,14 @@
               </p>
             </div>
 
-            <md-grid-tile-footer>
-              <a href="{{comp.url}}" target="blank">
-                <h3>View</h3>
-              </a>
-            </md-grid-tile-footer>
           </md-grid-tile>
         </md-grid-list>
 
 
         <div map-lazy-load="https://maps.google.com/maps/api/js">
-          <ng-map center="41,-87"
-                  zoom="3"></ng-map>
+          <ng-map center="39,-103"
+                  zoom="5"></ng-map>
         </div>
       </md-whiteframe>
     </div>
-
-  </div>
+  </md-content>

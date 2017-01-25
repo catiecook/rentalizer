@@ -24,6 +24,14 @@ angular.module('airdna')
           let revenue = data.revenue_potential["2016"];
           let yearRev = data.revenue_potential.ltm;
           let comp = data.comps;
+          let locations = [];
+
+          for(var i=0; i<data.comps.length; i++) {
+            locations.push({
+              lat: data.comps[i].lat,
+              lon: data.comps[i].lon
+            })
+          }
 
           return {
             adr: adr,
@@ -33,7 +41,8 @@ angular.module('airdna')
             details: details,
             revenue: revenue,
             yearRev: yearRev,
-            comp: comp
+            comp: comp,
+            locations: locations
           };
 
         }).catch((err) => {

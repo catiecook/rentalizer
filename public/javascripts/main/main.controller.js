@@ -2,10 +2,10 @@ angular.module('airdna')
 
 .controller('MainController', function($scope, mainService) {
     $scope.houseInfo = [];
+    $scope.locationPts = [];
 
     $scope.searched = false;
     $scope.hideForm = true;
-
 
 // These will be deleted
     $scope.address = "4111 Raritan Street";
@@ -15,15 +15,12 @@ angular.module('airdna')
     $scope.accomidates = 4;
 
     $scope.search = (beds, baths, accomidates, address, zipcode) => {
-
       mainService.getInfo(beds, baths, accomidates, address, zipcode).then((data) => {
         $scope.houseInfo = data
         console.log($scope.houseInfo);
       });
-
       hideForm();
       showResults();
-
     };
 
     function hideForm() {
