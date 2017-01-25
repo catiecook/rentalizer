@@ -1,5 +1,6 @@
 angular.module('airdna')
   .service('mainService', function($http) {
+    
     let revPotential = [];
 
     function getInfo(bed, bath, accomidates, address, zip){
