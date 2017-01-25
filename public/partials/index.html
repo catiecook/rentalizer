@@ -32,7 +32,8 @@
             <label>Address</label>
             <input required
                    flex="100"
-                   name="addr">
+                   name="addr"
+                   ng-model="address">
             <div ng-messages="projectForm.addr.$error">
               <div ng-message="required">
                 This is required.
@@ -45,7 +46,8 @@
           <input required
                  flex="50"
                  name="zip"
-                 type="number">
+                 type="number"
+                 ng-model="zipcode">
           <div ng-messages="projectForm.zipcode.$error">
             <div ng-message="required">
               This is required.
@@ -59,7 +61,8 @@
               <label>Beds</label>
               <input name="bed"
                      flex="90"
-                     type="number">
+                     type="number"
+                     ng-model="beds">
             </md-input-container>
 
             <md-input-container class="md-block">
@@ -73,7 +76,8 @@
             <md-input-container class="md-block">
               <label>Accomidates</label>
               <input name="accomidate"
-                     type="number">
+                     type="number"
+                     ng-model="accomidates">
             </md-input-container>
           </div>
           <div layout="row"

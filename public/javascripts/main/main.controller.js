@@ -30,18 +30,11 @@ angular.module('airdna')
           }]
     };
 
-
     $scope.searched = false;
     $scope.hideForm = true;
 
-// These will be deleted
-    $scope.address = "4111 Raritan Street";
-    $scope.zipcode = 80211;
-    $scope.beds = 2;
-    $scope.baths = 1;
-    $scope.accomidates = 4;
-
     $scope.search = (beds, baths, accomidates, address, zipcode) => {
+      console.log(beds, baths, accomidates, address);
       mainService.getInfo(beds, baths, accomidates, address, zipcode).then((data) => {
 
         $scope.houseInfo = data;
