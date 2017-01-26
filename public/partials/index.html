@@ -1,19 +1,20 @@
-<md-content class="with-margin">
-  <div layout="row"
-       layout-padding
-         ng-show="hideForm"
-       layout-align="center">
-    <div flex="25"></div>
-    <div flex="50">
-      <h1>Rentalizer</h1>
-      <h3>Find out how much money you could make on your house from rental based on data from AirBnb rates around yor neightborhood </h3>
-    </div>
-  <div flex="25"></div>
 
-  </div>
+<md-content class="with-margin">
+    <div layout="row"
+         layout-padding
+           ng-show="hideForm"
+         layout-align="center">
+      <div flex="25"></div>
+      <div flex="50">
+        <h1>Rentalizer</h1>
+        <h3>Find out how much money you could make on your house from rental based on data from AirBnb rates around yor neightborhood </h3>
+      </div>
+    <div flex="25"></div>
+    </div>
 </md-content>
 
-<md-content layout="column" class="with-margin">
+<md-content layout="column"
+            class="with-margin white-bg">
   <div layout="column"
        layout-padding
        ng-show="hideForm"
@@ -24,6 +25,7 @@
       <div flex="25"></div>
 
       <form name="projectForm"
+            class="md-whiteframe-1dp white"
             flex="55"
             layout-align="space-around"
             ng-submit="search(beds, baths, accomidates, address, zipcode)">
@@ -98,7 +100,7 @@
          layout-padding
          flex="100">
       <md-whiteframe layout="column"
-                     class="md-whiteframe-1dp"
+                     class="md-whiteframe-1dp white-no-padding"
                      flex="100"
                      layout-padding
                      layout-align="space-between">
@@ -116,14 +118,14 @@
              layout-padding
              class="center">
           <h2>House Details</h2>
-          <section class="emph"> {{houseInfo.details.bedrooms}}
+          <section> {{houseInfo.details.bedrooms}}
             <ng-pluralize count="houseInfo.details.bedrooms"
                  when="{'1': 'Bedroom',
                      'other': 'Bedrooms'}">
             </ng-pluralize>
           </section>
 
-          <section class="emph"> {{houseInfo.details.bathrooms}}
+          <section> {{houseInfo.details.bathrooms}}
             <ng-pluralize count="houseInfo.details.bathrooms"
                  when="{'1': 'Bathroom',
                      'other': 'Bathooms'}">
@@ -138,22 +140,23 @@
              layout-padding
              class="center">
           <h2>Daily Average</h2>
-          <section class="emph"> ${{houseInfo.avAdr}} </section>
-          <section class="emph"> Local Market: $140 </section>
+          <section> ${{houseInfo.avAdr}} </section>
+          <section> Local Market: $140 </section>
         </div>
         <div flex="30"
              layout="column"
              layout-padding
              class="center">
           <h2>Monthly Profits</h2>
-          <section class="emph"> $2,432 </section>
-          <section class="emph"> Local Market: $1,043 </section>
+          <section> $2,432 </section>
+          <section> Local Market: $1,043 </section>
         </div>
       </div>
       </md-whiteframe>
 
       <md-whiteframe flex="100"
-                     class="md-whiteframe-1dp">
+                     layout-align="center"
+                     class="md-whiteframe-1dp white-no-padding">
 
         <h2>Monthly Profit Chart</h2>
         <hc-chart options="chartOptions"></hc-chart>
@@ -162,7 +165,7 @@
 
       <md-whiteframe flex="100"
                      layout-padding
-                     class="center md-whiteframe-1dp">
+                     class="center md-whiteframe-1dp white-no-padding">
 
         <h2>Comparable Rentals</h2>
         <md-grid-list md-cols-xs="1"

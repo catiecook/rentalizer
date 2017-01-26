@@ -41,6 +41,7 @@ angular.module('airdna')
         $scope.monthlyRev = mainService.revPot(data.revenue);
         $scope.airBnb = mainService.getAllabnb();
         console.log($scope.airBnb);
+        
       });
       hideForm();
       showResults();

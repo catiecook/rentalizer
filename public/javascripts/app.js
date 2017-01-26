@@ -18,5 +18,7 @@ angular.module('airdna', ['ngRoute','ngAnimate', 'ngMaterial', 'ngAria', 'ngMap'
       .warnPalette('orange', {
         'default': '300',
       })
-      // .backgroundPalette('white');
+      .backgroundPalette('blue-grey', {
+        'default': '100'
+      });
 })
