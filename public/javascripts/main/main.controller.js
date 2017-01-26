@@ -34,14 +34,11 @@ angular.module('airdna')
     $scope.hideForm = true;
 
     $scope.search = (beds, baths, accomidates, address, zipcode) => {
-      console.log(beds, baths, accomidates, address);
       mainService.getInfo(beds, baths, accomidates, address, zipcode).then((data) => {
 
         $scope.houseInfo = data;
         $scope.monthlyRev = mainService.revPot(data.revenue);
         $scope.airBnb = mainService.getAllabnb();
-        console.log($scope.airBnb);
-        
       });
       hideForm();
       showResults();
