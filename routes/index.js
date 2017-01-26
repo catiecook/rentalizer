@@ -9,9 +9,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/search', (req, res, next) => {
-  console.log("searching....");
-
-  console.log(req.body.zip);
 
   request("https://api.airdna.co/v1/rentalizer/estimate?access_token=NjU4Nw|68139ce880ed48539872b000046d7949&address=" + req.body.address + "&zipcode=" + req.body.zip + "&bedrooms="+ req.body.bed + "&bathrooms=" + req.body.bath + "&accomidates=" + req.body.accomidates,
     (error, response, body) => {
